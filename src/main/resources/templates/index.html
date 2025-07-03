@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../static/css/styles.css">
+    <title>Lista de Usuários</title>
+</head>
+<body>
+    <h1>Usuários Cadastrados</h1>
+    <div class="busca">
+        <label for="idBusca">Buscar usuário por ID:</label>
+        <input type="number" id="idBusca" placeholder="Digite o ID">
+        <button onclick="buscarUsuario()">Buscar</button>
+    </div>
+
+    <table id="tabelaUsuarios">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nome</th>
+                <th>Email</th>
+            </tr>
+        </thead>
+        <tbody>
+        </tbody>
+    </table>
+    
+    <script src="../static/js/script.js"></script>
+    
+</body>
+</html>
+
+
