@@ -4,11 +4,7 @@ package com.cadastro.cadastro_usuario.controllers;
 import java.util.List;
 
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import com.cadastro.cadastro_usuario.User.User;
 import com.cadastro.cadastro_usuario.User.UserRepository;
@@ -34,5 +30,9 @@ public class UserController {
         return repository.findById(id)
                 .map(ResponseEntity::ok)
                 .orElse(ResponseEntity.notFound().build());
+    }
+    @PostMapping
+    public User criarUsuario(@RequestBody User user) {
+        return repository.save(user);
     }
 }
