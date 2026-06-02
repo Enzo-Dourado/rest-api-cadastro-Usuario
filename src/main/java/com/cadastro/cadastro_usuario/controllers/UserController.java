@@ -35,4 +35,17 @@ public class UserController {
     public User criarUsuario(@RequestBody User user) {
         return repository.save(user);
     }
+
+    @PutMapping("{id}")
+    public ResponseEntity<User> atualizarUsuario(@PathVariable Long id, @RequestBody User userDadosAtualizados) {
+        return repository.findById(id)
+                .map(user -> {
+                    user.setNome(userDadosAtualizados.getNome());
+                    user.setEmail(userDadosAtualizados.getEmail());
+
+                    User userAtualizado = repository.save(user);
+                    return ResponseEntity.ok(userAtualizado);
+                })
+                .orElse(ResponseEntity.notFound().build());
+    }
 }
